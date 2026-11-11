@@ -19,8 +19,8 @@ const TG_CHAT_IDS   = [];          // например: ['123456789'] или ['-
 const MAX_TOKEN     = '';
 const MAX_USER_IDS  = [];          // например: [123456789]
 const MAX_CHAT_IDS  = [];          // для группового чата в MAX (необязательно)
-const MAIL_TO       = 'TOTALGROUP38@gmail.com';
-const SITE_NAME     = 'TOTAL';
+const MAIL_TO       = 'totalsk38@gmail.com';
+const SITE_NAME     = 'ТОТАЛ';
 
 /* --------------------------------------------------------------------- */
 
