@@ -656,7 +656,7 @@ dialog p{color:var(--muted)}
       <div class="plan rv">
         <h3>Бюджетный</h3>
         <p class="plan-d">Качественная отделка без лишних затрат — для себя или под сдачу.</p>
-        <div class="plan-p">от 20 000 ₽/м²</div><div class="plan-t">Замер и смета — бесплатно</div>
+        <div class="plan-p">от 10 000 ₽/м²</div><div class="plan-t">Замер и смета — бесплатно</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Покраска стен и потолков</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Замена напольного покрытия</li>
@@ -669,7 +669,7 @@ dialog p{color:var(--muted)}
         <span class="plan-tag">Выбирают чаще</span>
         <h3>Капитальный</h3>
         <p class="plan-d">Квартира, дом или офис под ключ: от черновых работ до генеральной уборки.</p>
-        <div class="plan-p">По смете</div><div class="plan-t">Фиксированная стоимость в договоре</div>
+        <div class="plan-p">от 20 000 ₽/м²</div><div class="plan-t">Фиксированная стоимость в договоре</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Демонтаж и вывоз мусора</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Новая электрика и сантехника</li>
@@ -682,7 +682,7 @@ dialog p{color:var(--muted)}
       <div class="plan rv">
         <h3>Премиальный</h3>
         <p class="plan-d">Сложные решения и материалы высокого класса по дизайн-проекту.</p>
-        <div class="plan-p">По смете</div><div class="plan-t">С дизайнером интерьера</div>
+        <div class="plan-p">от 35 000 ₽/м²</div><div class="plan-t">С дизайнером интерьера</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Работы по дизайн-проекту</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Скрытый монтаж и сложный свет</li>
@@ -810,7 +810,7 @@ dialog p{color:var(--muted)}
           <output class="range-v" id="areaV" for="area" style="display:block">60 м²</output>
           <input type="range" id="area" name="area" min="20" max="200" step="1" value="60" aria-label="Площадь в квадратных метрах">
           <div class="range-m"><span>20 м²</span><span>200 м²</span></div>
-          <p class="q-live">Ремонт под ключ — <b id="qLive">от 1 200 000 ₽</b> <span>(от 20 000 ₽/м²)</span></p>
+          <p class="q-live"><span id="qLiveT">Ремонт под ключ</span> — <b id="qLive">от 600 000 ₽</b> <span id="qLiveR">(от 10 000 ₽/м²)</span></p>
         </fieldset>
 
         <fieldset data-step hidden>
@@ -825,7 +825,7 @@ dialog p{color:var(--muted)}
         <fieldset data-step hidden>
           <legend tabindex="-1">Нужен дизайн-проект?</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="design" value="Да"><span>Да, от 4 000 ₽/м²</span></label>
+            <label class="opt"><input type="radio" name="design" value="Да"><span>Да</span></label>
             <label class="opt"><input type="radio" name="design" value="Нет"><span>Нет</span></label>
             <label class="opt"><input type="radio" name="design" value="Не знаю"><span>Не знаю</span></label>
           </div>
@@ -1231,10 +1231,17 @@ function validate() {
   return '';
 }
 
-const PRICE_REPAIR = 20000, PRICE_DESIGN = 4000;
+const PRICES = { 'Бюджетный': 10000, 'Капитальный': 20000, 'Премиальный': 35000 }, PRICE_DESIGN = 4000;
 const rub = n => n.toLocaleString('ru-RU') + ' ₽';
+const typePrice = f => PRICES[f.type.value] || PRICES['Бюджетный'];
+function liveCalc() {
+  const f = quiz.elements, pr = typePrice(f);
+  $('#qLiveT').textContent = f.type.value ? 'Ремонт «' + f.type.value + '»' : 'Ремонт под ключ';
+  $('#qLive').textContent = 'от ' + rub(+f.area.value * pr);
+  $('#qLiveR').textContent = '(от ' + pr.toLocaleString('ru-RU') + ' ₽/м²)';
+}
 function estimate(f) {
-  const a = +f.area.value, repair = a * PRICE_REPAIR, design = a * PRICE_DESIGN;
+  const a = +f.area.value, repair = a * typePrice(f), design = a * PRICE_DESIGN;
   const withD = f.design.value === 'Да';
   return { a, repair, design, withD, total: repair + (withD ? design : 0) };
 }
@@ -1255,8 +1262,8 @@ async function finish() {
   const e = estimate(f);
   $('#qSum').textContent = 'от ' + rub(e.total);
   $('#qSumD').textContent = e.withD
-    ? `Ремонт под ключ — от ${rub(e.repair)}, дизайн-проект — от ${rub(e.design)}`
-    : `Ремонт под ключ — от ${rub(e.repair)}. Дизайн-проект — от ${rub(e.design)} дополнительно`;
+    ? `Ремонт «${f.type.value}» — от ${rub(e.repair)}, дизайн-проект — от ${rub(e.design)}`
+    : `Ремонт «${f.type.value}» — от ${rub(e.repair)}. Дизайн-проект — от ${rub(e.design)} дополнительно`;
   $('#qMain').hidden = true;
   const d = $('#qDone'); d.hidden = false; d.focus({ preventScroll: true });
   if (quiz.getBoundingClientRect().top < 0) quiz.scrollIntoView({ behavior: smooth() });
@@ -1271,10 +1278,11 @@ qNext.addEventListener('click', () => {
 qBack.addEventListener('click', () => { cur--; render(true); });
 quiz.addEventListener('submit', e => { e.preventDefault(); qNext.click(); });
 quiz.addEventListener('change', () => { qErr.textContent = ''; });
-area.addEventListener('input', () => { $('#areaV').textContent = area.value + ' м²'; $('#qLive').textContent = 'от ' + rub(+area.value * PRICE_REPAIR); });
+area.addEventListener('input', () => { $('#areaV').textContent = area.value + ' м²'; liveCalc(); });
+quiz.addEventListener('change', e => { if (e.target.name === 'type') liveCalc(); });
 $('#qAgain').addEventListener('click', () => {
   quiz.reset(); cur = 0;
-  $('#areaV').textContent = area.value + ' м²'; $('#qLive').textContent = 'от ' + rub(+area.value * PRICE_REPAIR);
+  $('#areaV').textContent = area.value + ' м²'; liveCalc();
   $('#qDone').hidden = true; $('#qMain').hidden = false;
   render(true);
 });
