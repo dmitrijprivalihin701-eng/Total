@@ -44,7 +44,7 @@ dialog.gal .g-cta{width:auto;margin:0;background:#fff;color:#111;border-color:#f
 <meta property="og:type" content="website">
 <meta property="og:title" content="ТОТАЛ — ремонт под ключ в Иркутске">
 <meta property="og:description" content="Работаем без авансов, фиксированная смета, гарантия 3 года">
-<meta property="og:image" content="img/og.jpg">
+<meta property="og:image" content="https://sktotal.ru/img/og.jpg"><meta property="og:url" content="https://sktotal.ru/"><link rel="canonical" href="https://sktotal.ru/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg class='mark' viewBox='236 176 806 870' aria-hidden='true'%3E%3Cg fill='none' stroke='%232e2e2e' stroke-width='56'%3E%3Cpath d='M562 1019H350Q264 1019 264 933V290Q264 204 350 204H903Q989 204 989 290V445'/%3E%3Cpath d='M989 505V933Q989 1019 903 1019H688'/%3E%3Cpath d='M370 422H562V1019'/%3E%3Cpath d='M880 422H688V1019'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -973,7 +973,7 @@ dialog p{color:var(--muted)}
 <dialog id="privD" aria-labelledby="privT">
   <button class="x" data-close aria-label="Закрыть"><svg class="ic"><use href="#i-close"/></svg></button>
   <h2 id="privT">Политика конфиденциальности</h2>
-  <p>Оператор персональных данных — ИП Преловский Александр Андреевич (ИНН 380808825675). Имя и телефон, которые вы оставляете на сайте, используются только для связи с вами по вопросу ремонта. Заявка передаётся нам в рабочие мессенджеры (Telegram, MAX) и на почту и не передаётся другим третьим лицам. Чтобы удалить свои данные, напишите на totalsk38@gmail.com.</p>
+  <p>Оператор персональных данных — ИП Преловский Александр Андреевич (ИНН 380808825675). Имя и телефон, которые вы оставляете на сайте, используются только для связи с вами по вопросу ремонта. Заявка передаётся нам в рабочие мессенджеры (Telegram, MAX), на почту и сохраняется в нашей таблице заявок; другим третьим лицам она не передаётся. Чтобы удалить свои данные, напишите на totalsk38@gmail.com.</p>
 </dialog>
 
 <script>
@@ -1139,14 +1139,17 @@ const LEAD = {
 
 /* ---------- Отправка заявок (send.php → Telegram, MAX, почта) ---------- */
 const METRIKA_ID = '';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqZQRYB_9uebSzO_SHul_Myft6oayrTt8YYJcTGBJl-OXAuFrmXp8OJreymDkXp80z6g/exec';
 const LEAD_PHONE = '+7 (901) 655-38-77';
 const IS_DEMO = location.protocol === 'file:' || /github\.io$|claude\.ai$|claudeusercontent|localhost$/.test(location.hostname);
 function goal(name) { try { if (METRIKA_ID && window.ym) ym(+METRIKA_ID, 'reachGoal', name); } catch (e) {} }
 async function sendLead(form, fields, hp) {
-  if (IS_DEMO) { await new Promise(r => setTimeout(r, 400)); return { ok: true }; }
+  if (!SCRIPT_URL && IS_DEMO) { await new Promise(r => setTimeout(r, 400)); return { ok: true }; }
   try {
-    const r = await fetch('send.php', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ form, fields, website: hp || '', page: location.href }) });
+    const body = JSON.stringify({ form, fields, website: hp || '', page: location.href });
+    const r = SCRIPT_URL
+      ? await fetch(SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body })
+      : await fetch('send.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
     const j = await r.json().catch(() => ({}));
     return r.ok && j.ok ? { ok: true } : { ok: false, error: j.error };
   } catch (e) { return { ok: false }; }
