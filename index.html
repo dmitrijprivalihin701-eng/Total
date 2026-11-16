@@ -322,6 +322,43 @@ input[type=range]{width:100%;height:32px;accent-color:var(--ink);cursor:pointer}
 #projects .all{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .tg-btn{display:inline-flex;align-items:center;gap:10px}.tg-btn .ic{width:20px;height:20px}
 .tg-note{text-align:center;margin-top:14px}
+.hero-note{margin-top:18px;max-width:520px;font-size:15px;line-height:1.55;color:#d9d5ce}
+.hero-tel{margin-top:10px;font-size:15px;color:#d9d5ce}.hero-tel a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.lead-sub{margin:-6px 0 18px;color:#6b6560;font-size:15px;line-height:1.5}.field small{font-weight:400;opacity:.65}
+.q-hint{margin:0 0 18px;opacity:.8;font-size:15px;line-height:1.5}
+.plan-kp{font-size:20px!important}
+#smeta .sm-g{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+#smeta h2{margin:14px 0 16px}.sm-l{list-style:none;margin:22px 0 26px;display:grid;gap:14px}.sm-l li{padding-left:22px;position:relative;line-height:1.55}
+.sm-l li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:1px;background:currentColor}
+.sm-b{display:flex;gap:12px;flex-wrap:wrap}
+.sm-doc{background:#fff;border:1px solid #e3ded6;border-radius:6px;padding:22px 22px 16px;box-shadow:0 24px 50px rgba(30,25,20,.10);font-size:14px}
+.sm-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:2px solid #1d1b19;margin-bottom:6px}.sm-h span{font-size:12px;opacity:.6}
+.sm-doc table{width:100%;border-collapse:collapse}.sm-doc th{text-align:left;font-weight:500;font-size:12px;opacity:.6;padding:8px 6px}
+.sm-doc td{padding:7px 6px;border-bottom:1px solid #eee8df}.sm-doc td:nth-child(n+2),.sm-doc th:nth-child(n+2){text-align:right;white-space:nowrap}
+.sm-doc tr.st td{font-weight:600;background:#f5f2ec;text-align:left}.sm-doc tfoot td{font-weight:600;border-bottom:0;padding-top:12px}
+.sm-doc .bl{filter:blur(4px);user-select:none}.sm-n{margin-top:10px;font-size:13px;opacity:.7}
+.ctrl{margin-top:56px;padding:34px;border:1px solid #e3ded6;border-radius:6px}.ctrl h3{margin-bottom:22px}
+.ctrl ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:c}
+.ctrl li{counter-increment:c;display:grid;gap:6px}.ctrl li::before{content:counter(c);width:34px;height:34px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:14px}
+.ctrl li span{opacity:.75;line-height:1.5}
+.gis{display:inline-flex}
+.mbar{display:none}
+@media (max-width:760px){
+ #smeta .sm-g{grid-template-columns:1fr;gap:30px}.ctrl ol{grid-template-columns:1fr}.ctrl{padding:24px}
+ .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(29,27,25,.96);backdrop-filter:blur(6px)}
+ .mbar .mb-tel{flex:0 0 auto;display:grid;place-items:center;padding:0 16px;border:1px solid rgba(255,255,255,.4);border-radius:4px;color:#fff;font-size:14px;text-decoration:none}
+ .mbar .btn{flex:1;justify-content:center;padding:14px 10px;font-size:14px}
+ body{padding-bottom:72px}.fab{bottom:84px!important}
+}
+#cases .case{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:34px 0;border-top:1px solid #e3ded6}
+.case-ph{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;border-radius:4px}.case-ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.case-ph:hover img{transform:scale(1.04)}.case-ph .cnt{position:absolute;left:14px;bottom:14px;background:rgba(29,27,25,.75);color:#fff;font-size:13px;padding:6px 12px;border-radius:30px}
+.case-tx h3{font-size:clamp(24px,2.6vw,34px);margin-bottom:4px}.case-pl{opacity:.6;margin-bottom:20px}
+.case dl{display:grid;gap:0;margin:0 0 24px}.case dl div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #eee8df}
+.case dt{font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.55;padding-top:2px}.case dd{margin:0;line-height:1.5}
+.case dl div:nth-child(5) dd{font-weight:600;font-size:18px}
+.case-b{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){#cases .case{grid-template-columns:1fr;gap:22px}.case-ph{aspect-ratio:4/3}.case dl div{grid-template-columns:96px 1fr;gap:10px}}
 .consent input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--ink)}
 .err{min-height:1.5em;margin:8px 0 0;color:#a3341c;font-size:14px;font-weight:500}
 .q-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px}
@@ -480,7 +517,7 @@ dialog p{color:var(--muted)}
     </nav>
     <a class="tel" data-site="phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
     <a class="btn btn-sand" href="#calc">Рассчитать стоимость</a>
-    <button class="btn btn-line" data-open="consult">Обсудить проект</button>
+    <button class="btn btn-line" data-open="consult">Бесплатная встреча</button>
     <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="panel"><span></span></button>
   </div>
 </header>
@@ -488,7 +525,7 @@ dialog p{color:var(--muted)}
   <a href="#about">О нас</a><a href="#services">Услуги</a><a href="#projects">Наши проекты</a><a href="#prices">Форматы</a><a href="#contacts">Контакты</a>
   <a class="tel-big" data-site="phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
   <a class="btn btn-sand" href="#calc">Рассчитать стоимость</a>
-  <button class="btn btn-line" data-open="consult">Обсудить проект</button>
+  <button class="btn btn-line" data-open="consult">Записаться на бесплатную встречу</button>
 </div>
 
 <main id="top">
@@ -500,10 +537,12 @@ dialog p{color:var(--muted)}
       <div class="hero-meta"><span class="label" style="color:#fff">[ Ремонт под ключ ]</span><span class="label" style="color:#d9d5ce" data-site="city">Иркутск</span></div>
     </div>
     <div>
-      <h1>Ремонт квартир и домов под ключ</h1>
-      <p class="lead">Строительная компания ТОТАЛ. Реализуем любой ремонт — от бюджетного до премиального. Работаем по договору и без авансов: оплата только после первого выполненного этапа.</p>
-      <div class="hero-act"><a class="btn btn-sand" href="#calc">Рассчитать стоимость</a>
-      <button class="cta" data-open="consult"><i><svg class="ic" viewBox="0 0 46 18"><use href="#i-long"/></svg></i>Консультация</button></div>
+      <h1>Ремонт с понятной сметой и сроками — в Иркутске</h1>
+      <p class="lead">Стоимость работ фиксируем в смете и договоре. Оплата — после выполненного этапа. Вы получаете фотоотчёт по ходу ремонта и гарантию 3 года на работы.</p>
+      <div class="hero-act"><button class="btn btn-sand" data-open="consult">Записаться на бесплатную встречу</button>
+      <a class="cta" href="#smeta"><i><svg class="ic" viewBox="0 0 46 18"><use href="#i-long"/></svg></i>Посмотреть пример сметы</a></div>
+      <p class="hero-note">Бесплатно приедем к вам, обсудим задачу и подготовим смету с отдельными строками на работы и материалы. Ни к чему не обязывает.</p>
+      <p class="hero-tel">Или позвоните: <a data-site="phone" href="tel:+70000000000">+7 (000) 000-00-00</a> · <a href="#calc">рассчитать стоимость</a></p>
       <div class="stats">
         <div><b>6+ лет</b><span>создаём комфорт</span></div>
         <div><b>3 года</b><span>гарантия на работы</span></div>
@@ -514,7 +553,7 @@ dialog p{color:var(--muted)}
 </section>
 <section class="adv" aria-label="Преимущества">
   <div class="wrap"><ul>
-    <li><svg class="ic"><use href="#i-measure"/></svg>Выезд сметчика-замерщика и смета — бесплатно</li>
+    <li><svg class="ic"><use href="#i-measure"/></svg>Бесплатный выезд и смета — без обязательств</li>
     <li><svg class="ic"><use href="#i-tag"/></svg>Материалы со скидкой у партнёров</li>
     <li><svg class="ic"><use href="#i-doc"/></svg>Без авансов, гарантия 3 года</li>
   </ul></div>
@@ -525,10 +564,10 @@ dialog p{color:var(--muted)}
   <div class="wrap">
     <p class="about-lead rv"><span class="label">[ О нас ]</span>ТОТАЛ — команда, где каждый мастер профессионал своего дела. Объединяем все этапы ремонта в одном месте: от дизайн-проекта до генеральной уборки.</p>
     <div class="about-grid">
-      <div class="about-big ph rv"><img data-photo="aboutBig" alt="Спальня после ремонта, ЖК «Новые Горизонты», 70 м²" loading="lazy"></div>
+      <div class="about-big ph rv"><img data-photo="aboutBig" alt="Спальня после ремонта, ЖК «Новые Горизонты», 68 м²" loading="lazy"></div>
       <div class="about-side rv">
         <div class="about-small ph"><img data-photo="aboutSmall" alt="Стена в детской, ЖК «Источник», 70 м²" loading="lazy"></div>
-        <p>Фиксированная стоимость работ: все цены отражены в официальной смете. В команде — опытный дизайнер интерьера, сметчик-замерщик, инженер и прораб, а за объектом ведётся двухкадровый контроль.</p>
+        <p>Фиксированная стоимость работ: все цены отражены в официальной смете. В команде — опытный дизайнер интерьера, сметчик-замерщик, инженер и прораб, а каждый этап проверяют двое: руководитель проекта (прораб) — сроки и качество, штатный специалист стройнадзора — соблюдение СНиП и ГОСТ.</p>
         <button class="cta" data-open="consult"><i><svg class="ic" viewBox="0 0 46 18"><use href="#i-long"/></svg></i>Консультация</button>
       </div>
     </div>
@@ -556,9 +595,9 @@ dialog p{color:var(--muted)}
         <div class="ph" data-project><img data-photo="p2" alt="Кухня-гостиная в светлых тонах" loading="lazy"><span class="cnt">8 фото</span></div>
         <h3>Светлая квартира</h3><p>ЖК «Сибиряков» · 70 м²</p><button class="link" data-project>Смотреть проект</button>
       </article>
-      <article class="prj" style="--w:36%" data-photo-key="p3" data-gal="gorizonty" data-title="Спальня с дизайнерским светом" data-facts="ЖК «Новые Горизонты»|70 м²" data-text="Чистовая отделка, освещение и санузел с крупноформатной плиткой.">
+      <article class="prj" style="--w:36%" data-photo-key="p3" data-gal="gorizonty" data-title="Спальня с дизайнерским светом" data-facts="ЖК «Новые Горизонты»|68 м²" data-text="Дизайн-проект и ремонт под ключ с демонтажем: чистовая отделка, освещение и санузел с крупноформатной плиткой.">
         <div class="ph" data-project><img data-photo="p3" alt="Спальня с мягким изголовьем" loading="lazy"><span class="cnt">3 фото</span></div>
-        <h3>Спальня с дизайнерским светом</h3><p>ЖК «Новые Горизонты» · 70 м²</p><button class="link" data-project>Смотреть проект</button>
+        <h3>Спальня с дизайнерским светом</h3><p>ЖК «Новые Горизонты» · 68 м²</p><button class="link" data-project>Смотреть проект</button>
       </article>
       <article class="prj" style="--w:30%" data-photo-key="p4" data-gal="svetlyy-yar" data-title="Загородный дом" data-facts="СНТ «Светлый Яр»|120 м²" data-text="Ремонт дома под ключ: кухня, гостиная, санузлы, встроенная мебель и скрытая подсветка потолков.">
         <div class="ph" data-project><img data-photo="p4" alt="Кухня в загородном доме" loading="lazy"><span class="cnt">21 фото · ▶ 1 видео</span></div>
@@ -610,6 +649,8 @@ dialog p{color:var(--muted)}
   </div>
 </section>
 
+<!-- 4b. РЕАЛИЗОВАННЫЕ ОБЪЕКТЫ -->
+<section class="sec" id="cases"><div class="wrap"><div class="head rv"><span class="label">[ Реализованные объекты ]</span><h2>Сколько стоит и сколько длится — на реальных примерах</h2></div><article class="case rv" data-gal="gorizonty" data-title="Квартира в ЖК «Новые Горизонты»" data-facts="ул. Пушкина|68 м²"><div class="case-ph ph" data-case><img src="gorizonty/00.jpg" alt="Квартира в ЖК «Новые Горизонты»" loading="lazy"><span class="cnt">Смотреть фото</span></div><div class="case-tx"><h3>Квартира в ЖК «Новые Горизонты»</h3><p class="case-pl">ул. Пушкина</p><dl><div><dt>Задача</dt><dd>Дизайн-проект и ремонт под ключ</dd></div><div><dt>Работы</dt><dd>Разработка дизайн-проекта, демонтажные работы, ремонт под ключ</dd></div><div><dt>Площадь</dt><dd>68 м²</dd></div><div><dt>Срок</dt><dd>6 месяцев вместе с разработкой проекта</dd></div><div><dt>Стоимость</dt><dd>2 580 000 ₽ с материалами</dd></div><div><dt>Контроль</dt><dd>Руководитель проекта вёл график и качество, стройнадзор проверял соответствие СНиП и ГОСТ, клиент получал фотоотчёт по каждому этапу</dd></div></dl><div class="case-b"><button class="btn btn-line" data-case>Фото объекта</button><button class="btn btn-dark" data-open="consult">Хочу так же — записаться на встречу</button></div></div></article></div></section>
 <!-- 5. БЫЛО / СТАЛО -->
 <section class="sec dark" id="before-after">
   <div class="wrap">
@@ -656,20 +697,20 @@ dialog p{color:var(--muted)}
       <div class="plan rv">
         <h3>Бюджетный</h3>
         <p class="plan-d">Качественная отделка без лишних затрат — для себя или под сдачу.</p>
-        <div class="plan-p">от 10 000 ₽/м²</div><div class="plan-t">Замер и смета — бесплатно</div>
+        <div class="plan-p plan-kp">Цена — в КП под ваш объект</div><div class="plan-t">Замер и смета — бесплатно</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Покраска стен и потолков</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Замена напольного покрытия</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Замена розеток и светильников</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Установка плинтусов и дверей</li>
         </ul>
-        <a class="btn btn-line" href="#calc" data-tariff="Бюджетный">Рассчитать</a>
+        <a class="btn btn-line" href="#calc" data-tariff="Бюджетный">Получить КП с ценами</a>
       </div>
       <div class="plan hot rv">
         <span class="plan-tag">Выбирают чаще</span>
         <h3>Капитальный</h3>
         <p class="plan-d">Квартира, дом или офис под ключ: от черновых работ до генеральной уборки.</p>
-        <div class="plan-p">от 20 000 ₽/м²</div><div class="plan-t">Фиксированная стоимость в договоре</div>
+        <div class="plan-p plan-kp">Цена — в КП под ваш объект</div><div class="plan-t">Фиксированная стоимость в договоре</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Демонтаж и вывоз мусора</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Новая электрика и сантехника</li>
@@ -677,12 +718,12 @@ dialog p{color:var(--muted)}
           <li><svg class="ic"><use href="#i-check"/></svg>Плитка, потолки и чистовая отделка</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Фото- и видеоотчёт за каждый этап</li>
         </ul>
-        <a class="btn btn-sand" href="#calc" data-tariff="Капитальный">Рассчитать</a>
+        <a class="btn btn-sand" href="#calc" data-tariff="Капитальный">Получить КП с ценами</a>
       </div>
       <div class="plan rv">
         <h3>Премиальный</h3>
         <p class="plan-d">Сложные решения и материалы высокого класса по дизайн-проекту.</p>
-        <div class="plan-p">от 35 000 ₽/м²</div><div class="plan-t">С дизайнером интерьера</div>
+        <div class="plan-p plan-kp">Цена — в КП под ваш объект</div><div class="plan-t">С дизайнером интерьера</div>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Работы по дизайн-проекту</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Скрытый монтаж и сложный свет</li>
@@ -690,20 +731,32 @@ dialog p{color:var(--muted)}
           <li><svg class="ic"><use href="#i-check"/></svg>Закупка и доставка материалов</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Производство и сборка мебели</li>
         </ul>
-        <a class="btn btn-line" href="#calc" data-tariff="Премиальный">Рассчитать</a>
+        <a class="btn btn-line" href="#calc" data-tariff="Премиальный">Получить КП с ценами</a>
       </div>
     </div>
-    <p class="note plans-n">Точная стоимость — в официальной смете после бесплатного замера. Материалы со скидкой через партнёрскую сеть.</p>
+    <p class="note plans-n">Оставьте данные об объекте — пришлём коммерческое предложение с ценами, а точную стоимость зафиксируем в смете и договоре после бесплатного замера. Материалы со скидкой через партнёрскую сеть.</p>
   </div>
 </section>
 
-<!-- 8. ПРОМО -->
-<section class="promo">
-  <div class="wrap">
-    <h2 class="rv">Хотите увидеть, как выглядит наша смета?</h2>
+<!-- 8. ОБРАЗЕЦ СМЕТЫ -->
+<section class="sec" id="smeta">
+  <div class="wrap sm-g">
     <div class="rv">
-      <p>Прозрачный расчёт: работы и материалы отдельно, полная документация, официальный договор и акт выполненных работ.</p>
-      <button class="btn btn-dark" data-open="estimate">Скачать пример сметы</button>
+      <span class="label">[ Образец сметы ]</span>
+      <h2>Смета, в которой видно каждую строку</h2>
+      <p>Работы и материалы — отдельными строками, разбивка по этапам и итог. Стоимость работ фиксируем в смете и договоре.</p>
+      <ul class="sm-l">
+        <li><b>Что входит в смету.</b> Всё, что нужно для результата: работы по этапам, черновые и чистовые материалы, вывоз мусора и уборка.</li>
+        <li><b>Когда сумма может измениться.</b> Только если вы сами решите добавить работы или заменить материалы.</li>
+        <li><b>Как согласуем дополнительные работы.</b> Сначала присылаем вам цену и объём, работы начинаем только после вашего согласия.</li>
+      </ul>
+      <div class="sm-b"><button class="btn btn-dark" data-open="consult">Получить КП с ценами</button><button class="btn btn-line" data-open="estimate">Скачать пример сметы</button></div>
+    </div>
+    <div class="sm-doc rv" aria-label="Фрагмент образца сметы">
+      <div class="sm-h"><b>Смета на ремонт квартиры</b><span>Образец · фрагмент</span></div>
+      <table><thead><tr><th>Наименование</th><th>Ед.</th><th>Кол-во</th><th>Сумма</th></tr></thead><tbody><tr class="st"><td colspan="4">Этап 1. Демонтаж</td></tr><tr><td>Демонтаж старой плитки и покрытий</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr><td>Вывоз строительного мусора</td><td>рейс</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr class="st"><td colspan="4">Этап 2. Черновые работы</td></tr><tr><td>Штукатурка стен по маякам</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr><td>Стяжка пола</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr><td>Электромонтаж: точка розетки</td><td>шт.</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr class="st"><td colspan="4">Этап 3. Чистовая отделка</td></tr><tr><td>Укладка керамогранита</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr><td>Покраска стен в 2 слоя</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr class="st"><td colspan="4">Материалы</td></tr><tr><td>Штукатурная смесь</td><td>меш.</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr><tr><td>Керамогранит</td><td>м²</td><td class="bl">00,0</td><td class="bl">00 000 ₽</td></tr></tbody>
+      <tfoot><tr><td colspan="3">Итого по смете</td><td class="bl">0 000 000 ₽</td></tr></tfoot></table>
+      <p class="sm-n">Цены — в коммерческом предложении под ваш объект</p>
     </div>
   </div>
 </section>
@@ -740,13 +793,21 @@ dialog p{color:var(--muted)}
     </div>
     <div class="g-grid">
       <div class="g-card rv"><h3>Без авансов</h3><p>Оплата только после первого выполненного этапа работ.</p><svg class="ic"><use href="#i-steps"/></svg></div>
-      <div class="g-card rv"><h3>Фиксированная стоимость</h3><p>Все цены отражены в официальной смете предприятия.</p><svg class="ic"><use href="#i-doc"/></svg></div>
-      <div class="g-card rv"><h3>Двухкадровый контроль</h3><p>За каждым этапом на объекте следят два специалиста.</p><svg class="ic"><use href="#i-shield"/></svg></div>
+      <div class="g-card rv"><h3>Фиксированная стоимость</h3><p>Цена работ закреплена в смете и договоре. Меняется, только если вы добавляете работы — их сначала согласуем с вами.</p><svg class="ic"><use href="#i-doc"/></svg></div>
+      <div class="g-card rv"><h3>Двойной контроль этапов</h3><p>Сроки и качество проверяет руководитель проекта (прораб), соответствие СНиП и ГОСТ — штатный специалист стройнадзора.</p><svg class="ic"><use href="#i-shield"/></svg></div>
       <div class="g-card rv"><h3>Фото- и видеоотчёт</h3><p>Отчитываемся за каждый этап работ.</p><svg class="ic"><use href="#i-cam"/></svg></div>
       <div class="g-card rv"><h3>Генеральная уборка</h3><p>После работ сдаём помещение чистым, с итоговым актом.</p><svg class="ic"><use href="#i-broom"/></svg></div>
       <div class="g-card rv"><h3>Расширенная гарантия 3 года</h3><p>Работаем по официальному договору и отвечаем за результат.</p><svg class="ic"><use href="#i-pen"/></svg></div>
     </div>
   </div>
+  <div class="wrap"><div class="ctrl rv">
+    <h3>Как мы контролируем каждый этап</h3>
+    <ol>
+      <li><b>Руководитель проекта</b><span>Ведёт график, проверяет сроки и качество работ на объекте.</span></li>
+      <li><b>Стройнадзор</b><span>Штатный специалист проверяет, что работы выполнены по СНиП и ГОСТ.</span></li>
+      <li><b>Вы</b><span>Получаете фото- и видеоотчёт, принимаете этап — и только после этого оплачиваете его.</span></li>
+    </ol>
+  </div></div>
 </section>
 
 <!-- 11. ОТЗЫВЫ -->
@@ -754,14 +815,14 @@ dialog p{color:var(--muted)}
   <div class="wrap">
     <div class="head rv"><span class="label">[ Отзывы ]</span><h2>Отзывы клиентов</h2></div>
     <div class="rail" style="justify-content:space-between;align-items:center">
-      <a class="note gis" href="https://2gis.ru/irkutsk/firm/70000001112845291/tab/reviews" target="_blank" rel="noopener"><b>5,0</b> ★ · 10 оценок в 2ГИС — читать все отзывы</a>
+      <a class="btn btn-line gis" href="https://2gis.ru/irkutsk/firm/70000001112845291/tab/reviews" target="_blank" rel="noopener"><b>5,0</b> ★ · 10 оценок в 2ГИС — читать все отзывы</a>
       <span style="display:flex;gap:10px">
         <button class="round" data-prev aria-label="Предыдущие отзывы"><svg class="ic"><use href="#i-left"/></svg></button>
         <button class="round" data-next aria-label="Следующие отзывы"><svg class="ic"><use href="#i-right"/></svg></button>
       </span>
     </div>
     <div class="track" tabindex="0" aria-label="Отзывы, можно листать">
-      <article class="card"><div class="stars" role="img" aria-label="Оценка 5 из 5">★★★★★</div><blockquote>Заказал дизайн-проект и ремонт квартиры 47 квадратов. За всё вместе отдал 1,410,000₽. Всё понравилось, отдали готовую квартиру за 4 месяца. Всегда были на связи, отправляли видео-отчёты. Спасибо ребята) Порекомендую вас !</blockquote><div class="who"><div class="av" aria-hidden="true">A</div><div><b>apapap 7777</b><span>31 марта 2026 · 2ГИС</span></div></div></article>
+      
       <article class="card"><div class="stars" role="img" aria-label="Оценка 5 из 5">★★★★★</div><blockquote>Заказали ремонт под ключ — остались в полном восторге! Работу выполнили быстро и качественно, всегда были на связи и присылали фотоотчёты. Очень приятно, когда всё прозрачно и без нервов. Спасибо за отличный результат, рекомендую!</blockquote><div class="who"><div class="av" aria-hidden="true">АВ</div><div><b>Анфиса Вождаева</b><span>13 апреля 2026 · 2ГИС</span></div></div></article>
       <article class="card"><div class="stars" role="img" aria-label="Оценка 5 из 5">★★★★★</div><blockquote>Спасибо, все понравилось. Хорошо сделали ремонт, есть гарантия, всегда были на связи</blockquote><div class="who"><div class="av" aria-hidden="true">НЕ</div><div><b>Наташа Ермолаева</b><span>6 августа 2026 · 2ГИС</span></div></div></article>
       <article class="card"><div class="stars" role="img" aria-label="Оценка 5 из 5">★★★★★</div><blockquote>Делал с ними ремонт,остался доволен. Оправданная стоимость за то, что выполнили все мои требования. Адекватный прораб и руководитель. Опрятные мастеры</blockquote><div class="who"><div class="av" aria-hidden="true">RR</div><div><b>Rareness Rarity</b><span>21 апреля 2026 · 2ГИС</span></div></div></article>
@@ -778,12 +839,12 @@ dialog p{color:var(--muted)}
   <div class="wrap">
     <div class="calc-h rv">
       <span class="label">[ Калькулятор ]</span>
-      <h2>Рассчитайте стоимость <em>вашего ремонта</em></h2>
-      <p>Ответьте на 6 вопросов — это займёт 2 минуты.</p>
+      <h2>Получите расчёт стоимости <em>вашего ремонта</em></h2>
+      <p>Ответьте на 6 вопросов о ремонте — это займёт 2 минуты. В конце оставьте имя и телефон: руководитель проектов пришлёт коммерческое предложение с ценами под ваш объект.</p>
     </div>
     <form class="q" id="quiz" novalidate>
       <div id="qMain">
-        <div class="q-top"><span id="qStep">Шаг 1/7</span></div>
+        <div class="q-top"><span id="qStep">Вопрос 1 из 6</span></div>
         <div class="q-bar" aria-hidden="true"><i id="qBar" style="width:14.3%"></i></div>
 
         <fieldset data-step>
@@ -810,7 +871,6 @@ dialog p{color:var(--muted)}
           <output class="range-v" id="areaV" for="area" style="display:block">60 м²</output>
           <input type="range" id="area" name="area" min="20" max="200" step="1" value="60" aria-label="Площадь в квадратных метрах">
           <div class="range-m"><span>20 м²</span><span>200 м²</span></div>
-          <p class="q-live"><span id="qLiveT">Ремонт под ключ</span> — <b id="qLive">от 600 000 ₽</b> <span id="qLiveR">(от 10 000 ₽/м²)</span></p>
         </fieldset>
 
         <fieldset data-step hidden>
@@ -841,7 +901,8 @@ dialog p{color:var(--muted)}
         </fieldset>
 
         <fieldset data-step hidden>
-          <legend tabindex="-1">Последний шаг: куда прислать расчёт?</legend>
+          <legend tabindex="-1">Куда прислать коммерческое предложение?</legend>
+          <p class="q-hint">Руководитель проектов подготовит коммерческое предложение с ценами под ваш объект, отправит его вам и предложит время бесплатной встречи.</p>
           <div class="q-two">
             <label class="field"><span>Имя</span><input name="name" autocomplete="given-name"></label>
             <label class="field"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7"></label>
@@ -857,9 +918,9 @@ dialog p{color:var(--muted)}
       </div>
 
       <div class="q-done" id="qDone" hidden tabindex="-1">
-        <h3>Спасибо! Мы свяжемся с вами</h3>
+        <h3>Спасибо! Заявка принята</h3>
         <p id="qDoneText"></p>
-        <div class="q-sum"><b id="qSum"></b><span id="qSumD" class="q-sum-d"></span><span class="note">Предварительная оценка по базовой цене. Точную смету составит сметчик-замерщик после бесплатного замера: объём работ, материалы, сроки.</span></div>
+        <div class="q-sum"><b>Что дальше</b><span class="q-sum-d">1. Руководитель проектов подготовит коммерческое предложение с ценами под ваш объект.<br>2. Свяжется с вами в течение дня, отправит КП и ответит на вопросы.<br>3. Согласуете время бесплатной встречи — после неё подготовим точную смету.</span></div>
                 <button type="button" class="btn btn-line" id="qAgain" style="margin-top:16px">Рассчитать заново</button>
       </div>
     </form>
@@ -875,11 +936,11 @@ dialog p{color:var(--muted)}
         <details name="f" open><summary>Сколько длится ремонт?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Зависит от площади и объёма работ. Срок фиксируем в графике работ при подписании договора.</p></details>
         <details name="f"><summary>Нужно ли вносить аванс?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Нет. Мы работаем по факту выполненных работ: оплата только после первого выполненного этапа.</p></details>
         <details name="f"><summary>Кто закупает материалы?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Мы подбираем и доставляем черновые, расходные, чистовые и декоративные материалы со скидкой через партнёрскую сеть.</p></details>
-        <details name="f"><summary>Может ли измениться стоимость?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Стоимость работ фиксированная и отражена в официальной смете. Работы и материалы считаем прозрачно и отдельно.</p></details>
+        <details name="f"><summary>Может ли измениться стоимость?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Нет, если не меняется объём работ. В смету входит всё: работы по этапам, черновые и чистовые материалы, вывоз мусора и уборка. Сумма может измениться, только если вы решите добавить работы или заменить материалы — такие изменения сначала согласуем с вами по цене и только потом выполняем.</p></details>
         <details name="f"><summary>Что входит в гарантию?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Расширенная гарантия 3 года на выполненные работы по официальному договору.</p></details>
         <details name="f"><summary>Вы делаете дизайн-проект?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Да. В команде работает опытный дизайнер интерьера, и мы регулярно делаем ремонт по дизайн-проекту.</p></details>
         <details name="f"><summary>Работаете с домами и офисами?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Да: вторичные квартиры, новостройки, загородные коттеджи, частные дома и офисные помещения.</p></details>
-        <details name="f"><summary>Как вы контролируете качество?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Двухкадровый контроль за объектом и фото-видеоотчёт за каждый этап работ.</p></details>
+        <details name="f"><summary>Как вы контролируете качество?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Каждый этап проверяют двое: руководитель проекта (прораб) следит за сроками и качеством, а штатный специалист стройнадзора — за соблюдением СНиП и ГОСТ. После этапа вы получаете фото- и видеоотчёт.</p></details>
       </div>
       <aside class="faq-side rv">
         <h3>Не нашли ответа на свой вопрос?</h3>
@@ -927,6 +988,7 @@ dialog p{color:var(--muted)}
   </footer>
 </div>
 
+<nav class="mbar" aria-label="Быстрая связь"><a class="mb-tel" data-tel href="tel:+79016553877">Позвонить</a><button class="btn btn-sand" data-open="consult">Записаться на встречу</button></nav>
 <!-- Плавающие кнопки -->
 <div class="fab" id="fab">
   <button class="fab-b small" id="toTop" aria-label="Наверх" hidden><svg class="ic"><use href="#i-up"/></svg></button>
@@ -941,8 +1003,10 @@ dialog p{color:var(--muted)}
   <button class="x" data-close aria-label="Закрыть"><svg class="ic"><use href="#i-close"/></svg></button>
   <form id="leadF" novalidate>
     <h2 id="leadT"></h2>
+    <p class="lead-sub" id="leadS" hidden></p>
     <label class="field"><span>Имя</span><input name="name" autocomplete="given-name"></label>
     <label class="field"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7"></label>
+    <label class="field" id="leadW" hidden><span>Когда удобно связаться? <small>(необязательно)</small></span><input name="when" placeholder="Например: сегодня после 18:00"></label>
     <label class="field" id="leadQ" hidden><span>Ваш вопрос</span><textarea name="question" rows="3"></textarea></label>
     <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><label class="consent"><input type="checkbox" name="agree"><span>Согласен на <button type="button" class="lnk" data-privacy>обработку персональных данных</button></span></label>
     <p class="err" id="leadE" role="alert"></p>
@@ -1132,9 +1196,9 @@ addEventListener('load', () => Object.values(ROOMS).forEach(r => { new Image().s
 /* ---------- Формы ---------- */
 const phoneOk = v => v.replace(/\D/g, '').length >= 10;
 const LEAD = {
-  consult:  { t: 'Давайте обсудим ваш проект', b: 'Заказать консультацию', ok: 'Перезвоним в течение 15 минут и договоримся о бесплатном замере.' },
-  ask:      { t: 'Задайте интересующий вас вопрос', b: 'Задать вопрос', q: true, ok: 'Мастер ответит на ваш вопрос в течение рабочего дня.' },
-  estimate: { t: 'Получите пример сметы', b: 'Получить пример', ok: 'Перезвоним в течение 15 минут и пришлём пример сметы удобным способом.' }
+  consult:  { t: 'Запишем вас на бесплатную встречу', s: 'Оставьте номер — в течение дня с вами свяжется наш руководитель проектов, уточнит адрес и удобное время встречи. На встрече обсудим бюджет, объём работ и сроки.', b: 'Назначить бесплатную встречу', when: true, ok: 'Заявка принята. Руководитель проектов свяжется с вами в течение дня, уточнит адрес и согласует удобное время бесплатной встречи. На встрече обсудим бюджет, объём работ и сроки — это ни к чему не обязывает.' },
+  ask:      { t: 'Задайте интересующий вас вопрос', b: 'Задать вопрос', q: true, ok: 'Вопрос принят. Руководитель проектов свяжется с вами и ответит в течение дня.' },
+  estimate: { t: 'Получите пример сметы', s: 'Пришлём образец нашей сметы: работы и материалы отдельными строками, этапы и итог.', b: 'Получить пример', when: true, ok: 'Заявка принята. Руководитель проектов свяжется с вами в течение дня и пришлёт пример сметы удобным способом.' }
 };
 
 /* ---------- Отправка заявок (send.php → Telegram, MAX, почта) ---------- */
@@ -1168,7 +1232,8 @@ function openLead(type) {
   const c = LEAD[type];
   leadF.reset(); leadE.textContent = '';
   leadF.hidden = false; leadOk.hidden = true;
-  $('#leadT').textContent = c.t; $('#leadB').textContent = c.b; $('#leadQ').hidden = !c.q;
+  $('#leadT').textContent = c.t; $('#leadB').textContent = c.b; $('#leadQ').hidden = !c.q; $('#leadW').hidden = !c.when;
+  $('#leadS').textContent = c.s || ''; $('#leadS').hidden = !c.s;
   leadD.showModal();
   leadF.elements.name.focus();
 }
@@ -1179,6 +1244,8 @@ document.addEventListener('click', e => {
   if (close) { close.closest('dialog').close(); return; }
   if (e.target.tagName === 'DIALOG') e.target.close();
   if (e.target.closest('[data-privacy]')) $('#privD').showModal();
+  const cs = e.target.closest('[data-case]');
+  if (cs) { openGal(cs.closest('.case')); return; }
   const prj = e.target.closest('[data-project]');
   if (prj) openGal(prj.closest('.prj'));
 });
@@ -1196,6 +1263,7 @@ leadF.addEventListener('submit', e => {
   btn.disabled = true; btn.textContent = 'Отправляем…';
   const fields = [['Имя', f.name.value], ['Телефон', f.phone.value]];
   if (LEAD[leadType].q) fields.push(['Вопрос', f.question.value]);
+  else if (LEAD[leadType].when && f.when.value.trim()) fields.push(['Вопрос', 'Когда удобно связаться: ' + f.when.value.trim()]);
   sendLead(LEAD[leadType].t, fields, f.website.value).then(res => {
     btn.disabled = false; btn.textContent = label;
     if (!res.ok) { leadE.textContent = failText(res.error); return; }
@@ -1213,10 +1281,10 @@ const REQUIRED = { 0: ['place', 'Выберите, где нужен ремон�
 let cur = 0;
 function render(focus) {
   steps.forEach((s, i) => { s.hidden = i !== cur; });
-  $('#qStep').textContent = `Шаг ${cur + 1}/${steps.length}`;
+  $('#qStep').textContent = cur < steps.length - 1 ? `Вопрос ${cur + 1} из ${steps.length - 1}` : 'Последний шаг — контакты';
   $('#qBar').style.width = (cur + 1) / steps.length * 100 + '%';
   qBack.hidden = cur === 0;
-  qNext.textContent = cur === steps.length - 1 ? 'Получить расчёт' : 'Далее';
+  qNext.textContent = cur === steps.length - 1 ? 'Получить КП с ценами' : 'Далее';
   qErr.textContent = '';
   if (focus) {
     $('legend', steps[cur]).focus({ preventScroll: true });
@@ -1255,18 +1323,12 @@ async function finish() {
   qSending = true; const lbl = qNext.textContent; qNext.disabled = true; qNext.textContent = 'Отправляем…';
   const res = await sendLead('Калькулятор стоимости', [
     ['Имя', f.name.value], ['Телефон', f.phone.value], ['Где ремонт', f.place.value], ['Тип ремонта', f.type.value],
-    ['Площадь', a + ' м²'], ['Состояние объекта', f.state.value], ['Дизайн-проект', f.design.value], ['Когда начать', f.when.value],
-    ['Оценка на сайте', 'от ' + rub(estimate(f).total)]
+    ['Площадь', a + ' м²'], ['Состояние объекта', f.state.value], ['Дизайн-проект', f.design.value], ['Когда начать', f.when.value]
   ], f.website.value);
   qSending = false; qNext.disabled = false; qNext.textContent = lbl;
   if (!res.ok) { qErr.textContent = failText(res.error); return; }
   goal('lead');
-  $('#qDoneText').textContent = `${f.place.value}, ${a} м², ремонт: ${f.type.value.toLowerCase()}.`;
-  const e = estimate(f);
-  $('#qSum').textContent = 'от ' + rub(e.total);
-  $('#qSumD').textContent = e.withD
-    ? `Ремонт «${f.type.value}» — от ${rub(e.repair)}, дизайн-проект — от ${rub(e.design)}`
-    : `Ремонт «${f.type.value}» — от ${rub(e.repair)}. Дизайн-проект — от ${rub(e.design)} дополнительно`;
+  $('#qDoneText').textContent = `${f.place.value}, ${a} м², ремонт: ${f.type.value.toLowerCase()}${f.design.value === 'Да' ? ', с дизайн-проектом' : ''}.`;
   $('#qMain').hidden = true;
   const d = $('#qDone'); d.hidden = false; d.focus({ preventScroll: true });
   if (quiz.getBoundingClientRect().top < 0) quiz.scrollIntoView({ behavior: smooth() });
@@ -1281,11 +1343,10 @@ qNext.addEventListener('click', () => {
 qBack.addEventListener('click', () => { cur--; render(true); });
 quiz.addEventListener('submit', e => { e.preventDefault(); qNext.click(); });
 quiz.addEventListener('change', () => { qErr.textContent = ''; });
-area.addEventListener('input', () => { $('#areaV').textContent = area.value + ' м²'; liveCalc(); });
-quiz.addEventListener('change', e => { if (e.target.name === 'type') liveCalc(); });
+area.addEventListener('input', () => { $('#areaV').textContent = area.value + ' м²'; });
 $('#qAgain').addEventListener('click', () => {
   quiz.reset(); cur = 0;
-  $('#areaV').textContent = area.value + ' м²'; liveCalc();
+  $('#areaV').textContent = area.value + ' м²';
   $('#qDone').hidden = true; $('#qMain').hidden = false;
   render(true);
 });
